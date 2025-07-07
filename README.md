@@ -21,11 +21,11 @@ A modern, responsive web application to manage your daily tasks efficiently. Bui
 
 ## 📸 Screenshots
 | Dashboard (Desktop) | Dashboard (Mobile) |
-|--------------------|--------------------|
-| ![Desktop]("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174736.png")
-("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174756.png")
- | ![Mobile]("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174351.png")
-("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174613.png") |
+|---------------------|--------------------|
+| ![](public/Screenshot%202025-07-07%20174736.png)<br>![](public/Screenshot%202025-07-07%20174756.png) | ![](public/Screenshot%202025-07-07%20174351.png)<br>![](public/Screenshot%202025-07-07%20174613.png) |
+
+> **Note:**
+> To display images in GitHub README, use the Markdown image syntax `![](relative/path/to/image.png)` with a path relative to the repo root. Do not use Windows absolute paths or quotes. Use `<br>` to show multiple images in one table cell.
 
 ---
 
