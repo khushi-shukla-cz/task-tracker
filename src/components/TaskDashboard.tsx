@@ -76,10 +76,10 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
 
   return (
     <div className="min-h-screen relative">
-      <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-8 max-w-6xl relative z-10">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 space-y-6 lg:space-y-0">
-          <div className="space-y-2">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 sm:mb-12 space-y-4 sm:space-y-6 lg:space-y-0 gap-4">
+          <div className="space-y-2 w-full lg:w-auto">
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
                 <Sparkles className="h-6 w-6 text-white" />
@@ -99,8 +99,8 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
           </div>
 
           {/* Stats Cards */}
-          <div className="flex flex-wrap gap-4">
-            <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/20 min-w-[120px]">
+          <div className="flex flex-wrap gap-3 sm:gap-4 w-full lg:w-auto">
+            <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/20 min-w-[120px] w-full sm:w-auto">
               <div className="flex items-center space-x-2">
                 <TrendingUp className="h-5 w-5 text-green-500" />
                 <div>
@@ -113,7 +113,7 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
             <Button
               onClick={onLogout}
               variant="outline"
-              className="bg-white/80 backdrop-blur-lg border-white/20 hover:bg-red-50 hover:border-red-200 hover:text-red-600 transition-all duration-300 rounded-2xl"
+              className="bg-white/80 backdrop-blur-lg border-white/20 hover:bg-red-50 hover:border-red-200 hover:text-red-600 transition-all duration-300 rounded-2xl w-full sm:w-auto"
             >
               <LogOut className="mr-2 h-4 w-4" />
               Logout
@@ -125,7 +125,7 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
         <div className="mb-8">
           <Button
             onClick={() => setShowForm(true)}
-            className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-2xl shadow-lg shadow-green-200 transform hover:scale-105 transition-all duration-300 h-12 px-8"
+            className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-2xl shadow-lg shadow-green-200 transform hover:scale-105 transition-all duration-300 h-12 px-8 w-full sm:w-auto"
           >
             <Plus className="mr-2 h-5 w-5" />
             Create New Task
@@ -156,7 +156,7 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
         </div>
 
         {/* Task List */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <TaskList
             tasks={filteredTasks}
             onEdit={setEditingTask}
@@ -166,13 +166,13 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
         </div>
 
         {filteredTasks.length === 0 && (
-          <div className="text-center py-16 animate-fade-in">
+          <div className="text-center py-10 sm:py-16 animate-fade-in">
             <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center mx-auto mb-6">
               <div className="text-4xl">
                 {filter === 'all' ? '📝' : filter === 'completed' ? '🎉' : '⏳'}
               </div>
             </div>
-            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-2">
               {filter === 'all' 
                 ? "Your canvas awaits"
                 : filter === 'completed'
@@ -180,7 +180,7 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
                 : "No pending tasks"
               }
             </h3>
-            <p className="text-gray-500 text-lg max-w-md mx-auto">
+            <p className="text-gray-500 text-base sm:text-lg max-w-xs sm:max-w-md mx-auto">
               {filter === 'all' 
                 ? "Create your first task and start your productivity journey!"
                 : `No ${filter} tasks found. ${filter === 'completed' ? 'Complete some tasks to see them here!' : 'Great job staying on top of things!'}`

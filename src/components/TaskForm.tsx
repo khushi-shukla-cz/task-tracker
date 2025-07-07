@@ -47,10 +47,10 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
   };
 
   return (
-    <Card className="backdrop-blur-lg bg-white/90 border-0 shadow-2xl shadow-purple-200/30 rounded-3xl overflow-hidden transform animate-scale-in">
+    <Card className="backdrop-blur-lg bg-white/90 border-0 shadow-2xl shadow-purple-200/30 rounded-3xl overflow-hidden transform animate-scale-in w-full max-w-xl mx-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-white/95 to-white/85 backdrop-blur-lg"></div>
       
-      <CardHeader className="relative bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-b border-white/20">
+      <CardHeader className="relative bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-b border-white/20 px-4 py-6 sm:px-8">
         <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent flex items-center">
           {task ? (
             <>
@@ -66,8 +66,8 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         </CardTitle>
       </CardHeader>
       
-      <CardContent className="relative p-8">
-        <form onSubmit={handleSubmit} className="space-y-6">
+      <CardContent className="relative px-4 py-6 sm:p-8">
+        <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
           <div className="space-y-2">
             <label htmlFor="title" className="block text-sm font-semibold text-gray-700 mb-3">
               Task Title *
@@ -97,10 +97,10 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
             />
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
             <Button
               type="submit"
-              className="flex-1 h-12 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-2xl shadow-lg shadow-purple-200 transform hover:scale-105 transition-all duration-300"
+              className="flex-1 h-12 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-2xl shadow-lg shadow-purple-200 transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               disabled={!title.trim()}
             >
               <Save className="mr-2 h-5 w-5" />
@@ -110,7 +110,7 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
               type="button"
               variant="outline"
               onClick={onCancel}
-              className="h-12 px-8 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-gray-50 rounded-2xl transition-all duration-300"
+              className="h-12 px-8 bg-white/80 backdrop-blur-sm border-gray-200 hover:bg-gray-50 rounded-2xl transition-all duration-300 w-full sm:w-auto"
             >
               <X className="mr-2 h-5 w-5" />
               Cancel
