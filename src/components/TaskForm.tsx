@@ -16,14 +16,17 @@ interface TaskFormProps {
 const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [priority, setPriority] = useState<'low' | 'medium' | 'high'>('medium');
 
   useEffect(() => {
     if (task) {
       setTitle(task.title);
       setDescription(task.description);
+      setPriority(task.priority || 'medium');
     } else {
       setTitle('');
       setDescription('');
+      setPriority('medium');
     }
   }, [task]);
 
@@ -36,12 +39,14 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         ...task,
         title: title.trim(),
         description: description.trim(),
+        priority,
       });
     } else {
       onSubmit({
         title: title.trim(),
         description: description.trim(),
         completed: false,
+        priority,
       });
     }
   };
@@ -95,6 +100,22 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
               rows={4}
               className="text-base bg-white/70 border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200 resize-none placeholder:text-gray-400"
             />
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="priority" className="block text-sm font-semibold text-gray-700 mb-3">
+              Priority
+            </label>
+            <select
+              id="priority"
+              value={priority}
+              onChange={e => setPriority(e.target.value as 'low' | 'medium' | 'high')}
+              className="h-12 w-full rounded-2xl border border-gray-200 bg-white/70 text-base focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-200"
+            >
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">

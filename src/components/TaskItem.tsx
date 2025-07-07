@@ -65,13 +65,24 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }: TaskItemProps) =
 
           {/* Task Content */}
           <div className="flex-1 min-w-0">
-            <h3 className={`font-bold text-xl mb-2 transition-all duration-300 ${
-              task.completed 
-                ? 'line-through text-gray-500' 
-                : 'text-gray-800 group-hover:text-purple-700'
-            }`}>
-              {task.title}
-            </h3>
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className={`font-bold text-xl transition-all duration-300 ${
+                task.completed 
+                  ? 'line-through text-gray-500' 
+                  : 'text-gray-800 group-hover:text-purple-700'
+              }`}>
+                {task.title}
+              </h3>
+              <span
+                className={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold
+                  ${(task.priority ?? 'medium') === 'high' ? 'bg-red-100 text-red-700' : ''}
+                  ${(task.priority ?? 'medium') === 'medium' ? 'bg-yellow-100 text-yellow-700' : ''}
+                  ${(task.priority ?? 'medium') === 'low' ? 'bg-green-100 text-green-700' : ''}
+                `}
+              >
+                {(task.priority ?? 'medium').charAt(0).toUpperCase() + (task.priority ?? 'medium').slice(1)}
+              </span>
+            </div>
             
             {task.description && (
               <p className={`text-base mb-3 leading-relaxed ${

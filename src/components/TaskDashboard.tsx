@@ -14,6 +14,7 @@ interface TaskDashboardProps {
 }
 
 const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
+  const [searchQuery, setSearchQuery] = useState('');
   const [tasks, setTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<FilterType>('all');
   const [showForm, setShowForm] = useState(false);
@@ -56,14 +57,25 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
   };
 
   const filteredTasks = tasks.filter(task => {
+    // Filter by status
     switch (filter) {
       case 'completed':
-        return task.completed;
+        if (!task.completed) return false;
+        break;
       case 'pending':
-        return !task.completed;
+        if (task.completed) return false;
+        break;
       default:
-        return true;
+        break;
     }
+    // Filter by search query
+    if (searchQuery.trim() !== '') {
+      const q = searchQuery.trim().toLowerCase();
+      if (!task.title.toLowerCase().includes(q) && !task.description.toLowerCase().includes(q)) {
+        return false;
+      }
+    }
+    return true;
   });
 
   const taskCounts = {
@@ -145,6 +157,17 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
             />
           </div>
         )}
+
+        {/* Search Bar */}
+        <div className="mb-4 flex w-full justify-center">
+          <input
+            type="text"
+            placeholder="Search tasks..."
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            className="w-full max-w-md px-4 py-2 rounded-2xl border border-gray-200 bg-white/80 shadow focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 text-base"
+          />
+        </div>
 
         {/* Task Filter */}
         <div className="mb-8">
