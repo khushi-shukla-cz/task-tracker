@@ -22,7 +22,10 @@ A modern, responsive web application to manage your daily tasks efficiently. Bui
 ## 📸 Screenshots
 | Dashboard (Desktop) | Dashboard (Mobile) |
 |--------------------|--------------------|
-| ![Desktop](https://i.imgur.com/3Z0KtQf.png) | ![Mobile](https://i.imgur.com/your-mobile-screenshot.png) |
+| ![Desktop]("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174736.png")
+("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174756.png")
+ | ![Mobile]("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174351.png")
+("C:\Users\Khushi\OneDrive\Desktop\Internship\RYGNeco Internship\public\Screenshot 2025-07-07 174613.png") |
 
 ---
 

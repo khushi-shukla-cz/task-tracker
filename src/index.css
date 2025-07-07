@@ -37,31 +37,31 @@ All colors MUST be HSL.
   }
 
   :root.dark {
-    --primary: #0B405B;
+    --primary: #7F9CF5;
     --secondary: #A6FF4D;
     --secondary-dark: #19C37D;
-    --neutral-bg: #121212;
-    --text-primary: #FFFFFF;
-    --text-muted: #CCCCCC;
+    --neutral-bg: #181A20;
+    --text-primary: #F8F8F2;
+    --text-muted: #B3B3B3;
     --error: #FF675C;
     --success: #00E685;
-    --border: #44413A;
-    --background: #1A1A1A;
-    --card: #232323;
-    --input: #232323;
-    --popover: #232323;
-    --foreground: #FFFFFF;
-    --card-foreground: #FFFFFF;
-    --popover-foreground: #FFFFFF;
+    --border: #2D2F36;
+    --background: #181A20;
+    --card: #23272F;
+    --input: #23272F;
+    --popover: #23272F;
+    --foreground: #F8F8F2;
+    --card-foreground: #F8F8F2;
+    --popover-foreground: #F8F8F2;
     --radius: 0.5rem;
-    --sidebar-background: #181818;
+    --sidebar-background: #181A20;
     --sidebar-foreground: #A6FF4D;
     --sidebar-primary: #A6FF4D;
-    --sidebar-primary-foreground: #181818;
-    --sidebar-accent: #19C37D;
-    --sidebar-accent-foreground: #FFFFFF;
-    --sidebar-border: #44413A;
-    --sidebar-ring: #19C37D;
+    --sidebar-primary-foreground: #181A20;
+    --sidebar-accent: #FFB86C;
+    --sidebar-accent-foreground: #181A20;
+    --sidebar-border: #2D2F36;
+    --sidebar-ring: #A6FF4D;
   }
 
   html, body, #root, .card, .popover, .input, .sidebar, .button, .heading, .bg, .text, .border {
