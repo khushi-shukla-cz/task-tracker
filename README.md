@@ -1,24 +1,35 @@
-# Project Documentation
+# 📝 Personal Task Tracker
 
-Project info
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![Responsive](https://img.shields.io/badge/mobile-responsive-blue)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-This project is a modern web application built using Vite, React, TypeScript, shadcn-ui, and Tailwind CSS. It provides a robust foundation for developing scalable and maintainable user interfaces with fast development workflows and customizable UI components.
+A modern, responsive web application to manage your daily tasks efficiently. Built with Vite, React, TypeScript, Tailwind CSS, and shadcn-ui for a beautiful and seamless experience across all devices.
 
-How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Features
+- **Add, Edit, Delete Tasks** – Manage your to-dos with ease
+- **Mark Tasks as Completed** – Stay on top of your progress
+- **Filter by Status** – View all, pending, or completed tasks
+- **Responsive Design** – Optimized for mobile, tablet, and desktop
+- **Beautiful Animations** – Smooth transitions and feedback
+- **Accessible UI** – Keyboard navigation and screen reader support
+- **Persistent Storage** – Tasks saved locally in your browser
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes.
+## 📸 Screenshots
+| Dashboard (Desktop) | Dashboard (Mobile) |
+|--------------------|--------------------|
+| ![Desktop](https://i.imgur.com/3Z0KtQf.png) | ![Mobile](https://i.imgur.com/your-mobile-screenshot.png) |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🌐 Live Demo
+> **Coming soon!**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
 # Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>

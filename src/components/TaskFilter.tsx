@@ -21,7 +21,7 @@ const TaskFilter = ({ currentFilter, onFilterChange, taskCounts }: TaskFilterPro
 
   return (
     <div className="mb-8">
-      <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-2 shadow-lg border border-white/20 inline-flex space-x-1">
+      <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-2 sm:p-3 shadow-lg border border-white/20 flex flex-wrap gap-2 justify-center">
         {filters.map((filter) => (
           <Button
             key={filter.key}
