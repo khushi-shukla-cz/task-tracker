@@ -17,16 +17,19 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState<'low' | 'medium' | 'high'>('medium');
+  const [dueDate, setDueDate] = useState<string>('');
 
   useEffect(() => {
     if (task) {
       setTitle(task.title);
       setDescription(task.description);
       setPriority(task.priority || 'medium');
+      setDueDate(task.dueDate ? task.dueDate.split('T')[0] : '');
     } else {
       setTitle('');
       setDescription('');
       setPriority('medium');
+      setDueDate('');
     }
   }, [task]);
 
@@ -40,6 +43,7 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         title: title.trim(),
         description: description.trim(),
         priority,
+        dueDate: dueDate ? new Date(dueDate).toISOString() : undefined,
       });
     } else {
       onSubmit({
@@ -47,6 +51,7 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         description: description.trim(),
         completed: false,
         priority,
+        dueDate: dueDate ? new Date(dueDate).toISOString() : undefined,
       });
     }
   };
@@ -116,6 +121,19 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
               <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="dueDate" className="block text-sm font-semibold text-gray-700 mb-3">
+              Due Date
+            </label>
+            <input
+              id="dueDate"
+              type="date"
+              value={dueDate}
+              onChange={e => setDueDate(e.target.value)}
+              className="h-12 w-full rounded-2xl border border-gray-200 bg-white/70 text-base focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all duration-200"
+            />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">

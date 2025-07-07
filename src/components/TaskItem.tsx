@@ -93,6 +93,25 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }: TaskItemProps) =
                 {task.description}
               </p>
             )}
+
+            {/* Due Date */}
+            {task.dueDate && (
+              <div className="flex items-center gap-2 mb-2">
+                {(() => {
+                  const due = new Date(task.dueDate);
+                  const today = new Date();
+                  today.setHours(0,0,0,0);
+                  const isOverdue = !task.completed && due.getTime() < today.getTime();
+                  return (
+                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${isOverdue ? 'bg-red-100 text-red-700 animate-pulse' : 'bg-blue-100 text-blue-700'}`}>
+                      {isOverdue && <svg className="w-4 h-4 mr-1 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" /></svg>}
+                      Due: {due.toLocaleDateString()}
+                      {isOverdue && ' (Overdue)'}
+                    </span>
+                  );
+                })()}
+              </div>
+            )}
             
             <div className="flex items-center space-x-2">
               <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
