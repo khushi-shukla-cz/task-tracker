@@ -94,6 +94,17 @@ const TaskItem = ({ task, onEdit, onDelete, onToggleComplete }: TaskItemProps) =
               </p>
             )}
 
+            {/* Tags */}
+            {task.tags && task.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-2">
+                {task.tags.map(tag => (
+                  <span key={tag} className="inline-flex items-center px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
             {/* Due Date */}
             {task.dueDate && (
               <div className="flex items-center gap-2 mb-2">

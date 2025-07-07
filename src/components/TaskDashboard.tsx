@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { LogOut, Plus, Sparkles, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import DarkModeToggle from '@/components/ui/DarkModeToggle';
 import TaskForm from './TaskForm';
 import TaskList from './TaskList';
 import TaskFilter from './TaskFilter';
@@ -103,33 +104,42 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
                 <p className="text-gray-600 text-lg">
                   {taskCounts.pending > 0 
                     ? `${taskCounts.pending} task${taskCounts.pending === 1 ? '' : 's'} waiting for you`
-                    : 'All caught up! Time to celebrate 🎉'
-                  }
+                    : 'All caught up! Time to celebrate '}
                 </p>
               </div>
             </div>
           </div>
-
-          {/* Stats Cards */}
-          <div className="flex flex-wrap gap-3 sm:gap-4 w-full lg:w-auto">
-            <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/20 min-w-[120px] w-full sm:w-auto">
-              <div className="flex items-center space-x-2">
-                <TrendingUp className="h-5 w-5 text-green-500" />
-                <div>
-                  <p className="text-2xl font-bold text-gray-800">{completionRate}%</p>
-                  <p className="text-xs text-gray-600">Complete</p>
-                </div>
-              </div>
-            </div>
-            
+          <div className="flex items-center gap-2 sm:gap-4 mt-2 sm:mt-0">
+            <DarkModeToggle />
             <Button
-              onClick={onLogout}
               variant="outline"
-              className="bg-white/80 backdrop-blur-lg border-white/20 hover:bg-red-50 hover:border-red-200 hover:text-red-600 transition-all duration-300 rounded-2xl w-full sm:w-auto"
+              className="hidden sm:inline-flex items-center gap-2 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-2xl shadow"
+              onClick={onLogout}
             >
-              <LogOut className="mr-2 h-4 w-4" />
+              <LogOut className="w-5 h-5" />
               Logout
             </Button>
+            <Button
+              variant="default"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl shadow hover:from-purple-600 hover:to-pink-600"
+              onClick={() => setShowForm(true)}
+            >
+              <Plus className="w-5 h-5" />
+              Add Task
+            </Button>
+          </div>
+        </div>
+
+        {/* Stats Cards */}
+        <div className="flex flex-wrap gap-3 sm:gap-4 w-full lg:w-auto">
+          <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/20 min-w-[120px] w-full sm:w-auto">
+            <div className="flex items-center space-x-2">
+              <TrendingUp className="h-5 w-5 text-green-500" />
+              <div>
+                <p className="text-2xl font-bold text-gray-800">{completionRate}%</p>
+                <p className="text-xs text-gray-600">Complete</p>
+              </div>
+            </div>
           </div>
         </div>
 

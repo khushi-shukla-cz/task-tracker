@@ -9,45 +9,65 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --primary: #0B405B;
+    --secondary: #94D82A;
+    --secondary-dark: #109960;
+    --neutral-bg: #F7F7F7;
+    --text-primary: #000000;
+    --text-muted: #676767;
+    --error: #FF5340;
+    --success: #00C26B;
+    --border: #B3AC9B;
+    --background: #F7F7F7;
+    --card: #FFFFFF;
+    --input: #FFFFFF;
+    --popover: #FFFFFF;
+    --foreground: #000000;
+    --card-foreground: #000000;
+    --popover-foreground: #000000;
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: #F7F7F7;
+    --sidebar-foreground: #0B405B;
+    --sidebar-primary: #0B405B;
+    --sidebar-primary-foreground: #F7F7F7;
+    --sidebar-accent: #94D82A;
+    --sidebar-accent-foreground: #0B405B;
+    --sidebar-border: #B3AC9B;
+    --sidebar-ring: #94D82A;
   }
+
+  :root.dark {
+    --primary: #0B405B;
+    --secondary: #A6FF4D;
+    --secondary-dark: #19C37D;
+    --neutral-bg: #121212;
+    --text-primary: #FFFFFF;
+    --text-muted: #CCCCCC;
+    --error: #FF675C;
+    --success: #00E685;
+    --border: #44413A;
+    --background: #1A1A1A;
+    --card: #232323;
+    --input: #232323;
+    --popover: #232323;
+    --foreground: #FFFFFF;
+    --card-foreground: #FFFFFF;
+    --popover-foreground: #FFFFFF;
+    --radius: 0.5rem;
+    --sidebar-background: #181818;
+    --sidebar-foreground: #A6FF4D;
+    --sidebar-primary: #A6FF4D;
+    --sidebar-primary-foreground: #181818;
+    --sidebar-accent: #19C37D;
+    --sidebar-accent-foreground: #FFFFFF;
+    --sidebar-border: #44413A;
+    --sidebar-ring: #19C37D;
+  }
+
+  html, body, #root, .card, .popover, .input, .sidebar, .button, .heading, .bg, .text, .border {
+    transition: all 0.3s ease;
+  }
+
 
   .dark {
     --background: 222.2 84% 4.9%;

@@ -18,6 +18,8 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState<'low' | 'medium' | 'high'>('medium');
   const [dueDate, setDueDate] = useState<string>('');
+  const [tags, setTags] = useState<string[]>([]);
+  const [tagInput, setTagInput] = useState('');
 
   useEffect(() => {
     if (task) {
@@ -25,13 +27,38 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
       setDescription(task.description);
       setPriority(task.priority || 'medium');
       setDueDate(task.dueDate ? task.dueDate.split('T')[0] : '');
+      setTags(task.tags || []);
     } else {
       setTitle('');
       setDescription('');
       setPriority('medium');
       setDueDate('');
+      setTags([]);
     }
   }, [task]);
+
+  const handleTagInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTagInput(e.target.value);
+  };
+
+  const addTag = (tag: string) => {
+    const clean = tag.trim().replace(/[,]/g, '');
+    if (clean && !tags.includes(clean)) {
+      setTags([...tags, clean]);
+    }
+  };
+
+  const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if ((e.key === 'Enter' || e.key === ',') && tagInput.trim()) {
+      e.preventDefault();
+      addTag(tagInput);
+      setTagInput('');
+    }
+  };
+
+  const removeTag = (remove: string) => {
+    setTags(tags.filter(t => t !== remove));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,6 +71,7 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         description: description.trim(),
         priority,
         dueDate: dueDate ? new Date(dueDate).toISOString() : undefined,
+        tags,
       });
     } else {
       onSubmit({
@@ -52,9 +80,10 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
         completed: false,
         priority,
         dueDate: dueDate ? new Date(dueDate).toISOString() : undefined,
+        tags,
       });
     }
-  };
+  }; 
 
   return (
     <Card className="backdrop-blur-lg bg-white/90 border-0 shadow-2xl shadow-purple-200/30 rounded-3xl overflow-hidden transform animate-scale-in w-full max-w-xl mx-auto">
@@ -133,6 +162,37 @@ const TaskForm = ({ task, onSubmit, onCancel }: TaskFormProps) => {
               value={dueDate}
               onChange={e => setDueDate(e.target.value)}
               className="h-12 w-full rounded-2xl border border-gray-200 bg-white/70 text-base focus:ring-2 focus:ring-indigo-300 focus:border-transparent transition-all duration-200"
+            />
+          </div>
+
+          {/* Tags input */}
+          <div className="space-y-2">
+            <label htmlFor="tags" className="block text-sm font-semibold text-gray-700 mb-3">
+              Categories/Tags
+            </label>
+            <div className="flex flex-wrap gap-2 mb-2">
+              {tags.map(tag => (
+                <span key={tag} className="inline-flex items-center px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 text-xs font-medium">
+                  {tag}
+                  <button
+                    type="button"
+                    className="ml-1 text-purple-400 hover:text-red-500 focus:outline-none"
+                    onClick={() => removeTag(tag)}
+                    aria-label={`Remove tag ${tag}`}
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                </span>
+              ))}
+            </div>
+            <input
+              id="tags"
+              type="text"
+              value={tagInput}
+              onChange={handleTagInput}
+              onKeyDown={handleTagKeyDown}
+              className="h-10 w-full rounded-2xl border border-gray-200 bg-white/70 text-base focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
+              placeholder="Add a tag and press Enter"
             />
           </div>
 
