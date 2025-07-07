@@ -37,31 +37,34 @@ All colors MUST be HSL.
   }
 
   :root.dark {
-    --primary: #0B405B;
-    --secondary: #A6FF4D;
-    --secondary-dark: #19C37D;
+    --background: linear-gradient(135deg, #121212 0%, #1E1E2F 100%);
     --neutral-bg: #121212;
+    --card: #2A2A3B;
+    --input: #333344;
+    --popover: #2A2A3B;
+    --primary: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%);
+    --secondary: #8b5cf6;
+    --success: #00E676;
+    --priority-yellow: #FDD835;
     --text-primary: #FFFFFF;
-    --text-muted: #CCCCCC;
-    --error: #FF675C;
-    --success: #00E685;
-    --border: #44413A;
-    --background: #1A1A1A;
-    --card: #232323;
-    --input: #232323;
-    --popover: #232323;
+    --text-muted: #B3B3B3;
     --foreground: #FFFFFF;
     --card-foreground: #FFFFFF;
     --popover-foreground: #FFFFFF;
+    --error: #FF675C;
+    --border: #232336;
     --radius: 0.5rem;
-    --sidebar-background: #181818;
-    --sidebar-foreground: #A6FF4D;
-    --sidebar-primary: #A6FF4D;
-    --sidebar-primary-foreground: #181818;
-    --sidebar-accent: #19C37D;
+    --sidebar-background: #181A20;
+    --sidebar-foreground: #FFFFFF;
+    --sidebar-primary: #ec4899;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%);
     --sidebar-accent-foreground: #FFFFFF;
-    --sidebar-border: #44413A;
-    --sidebar-ring: #19C37D;
+    --sidebar-border: #232336;
+    --sidebar-ring: #8b5cf6;
+    --shadow-soft: 0 4px 32px 0 rgba(60,40,120,0.18), 0 1.5px 5px 0 rgba(60,40,120,0.09);
+    --glow: 0 0 8px #8b5cf6, 0 0 16px #ec4899;
+    --placeholder: #CCCCCC;
   }
 
   html, body, #root, .card, .popover, .input, .sidebar, .button, .heading, .bg, .text, .border {

@@ -88,7 +88,9 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
   const completionRate = tasks.length > 0 ? Math.round((taskCounts.completed / tasks.length) * 100) : 0;
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative bg-[var(--background)]">
+      {/* Gradient overlay for dark mode */}
+      <div className="pointer-events-none select-none fixed inset-0 z-0 dark:before:content-[''] dark:before:fixed dark:before:inset-0 dark:before:bg-gradient-to-br dark:before:from-[#121212] dark:before:to-[#1E1E2F] dark:before:opacity-100"></div>
       <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-8 max-w-6xl relative z-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 sm:mb-12 space-y-4 sm:space-y-6 lg:space-y-0 gap-4">
@@ -132,12 +134,12 @@ const TaskDashboard = ({ user, onLogout }: TaskDashboardProps) => {
 
         {/* Stats Cards */}
         <div className="flex flex-wrap gap-3 sm:gap-4 w-full lg:w-auto">
-          <div className="bg-white/80 backdrop-blur-lg rounded-2xl p-4 shadow-lg border border-white/20 min-w-[120px] w-full sm:w-auto">
+          <div className="bg-[var(--card)] rounded-2xl p-4 shadow-[var(--shadow-soft)] border border-[var(--border)] min-w-[120px] w-full sm:w-auto">
             <div className="flex items-center space-x-2">
-              <TrendingUp className="h-5 w-5 text-green-500" />
+              <TrendingUp className="h-5 w-5 text-[var(--success)] drop-shadow-[var(--glow)]" />
               <div>
-                <p className="text-2xl font-bold text-gray-800">{completionRate}%</p>
-                <p className="text-xs text-gray-600">Complete</p>
+                <p className="text-2xl font-bold text-[var(--text-primary)]">{completionRate}%</p>
+                <p className="text-xs text-[var(--text-muted)]">Complete</p>
               </div>
             </div>
           </div>
